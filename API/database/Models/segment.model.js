@@ -27,7 +27,7 @@ const SegmentSchema = new mongoose.Schema({
 	}
 })
 
-const Segment = mongoose.Model('Segment', SegmentSchema);
+const Segment = mongoose.model('Segment', SegmentSchema);
 
 module.exports = {
 	Segment
