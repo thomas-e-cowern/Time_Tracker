@@ -25,7 +25,7 @@ struct ContentView: View {
             if showNewProjectTextField {
                 TextField("Enter your name", text: $newProject)
                 Button(action: {
-                    DataController.shared.projects.append(newProject)
+//                    DataController.shared.projects.append(newProject)
                 }, label: {
                     Text("Add")
                     Image(systemName: "plus")
@@ -33,9 +33,9 @@ struct ContentView: View {
             }
             
             Picker("Please choose a project", selection: $selectedProject) {
-                ForEach( DataController.shared.projects, id: \.self) {
-                    Text($0)
-                }
+//                ForEach( DataController.shared.projects, id: \.self) {
+//                    Text($0.name)
+//                }
             }
             Text("You selected: \(selectedProject)")
         }

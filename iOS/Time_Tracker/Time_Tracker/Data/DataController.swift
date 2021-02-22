@@ -12,7 +12,7 @@ class DataController: ObservableObject {
     // MARK:  Properties
     static var shared = DataController()
     
-    @Published var projects : [String] = []
+    @Published var projects : [Project] = []
 
     func saveData () {
             DispatchQueue.global().async {
@@ -22,6 +22,21 @@ class DataController: ObservableObject {
                         defaults.setValue(encoded, forKey: "projects")
                         defaults.synchronize()
 //                        WidgetCenter.shared.reloadAllTimelines()
+                    }
+                }
+            }
+        }
+    
+    func loadData () {
+            DispatchQueue.global().async {
+                if let defaults = UserDefaults(suiteName: "group.MobileSoftwareServices.HypedList") {
+                    if let data = defaults.data(forKey: "projects") {
+                        let decoder = JSONDecoder()
+                        if let jsonProjects = try? decoder.decode([Project].self, from: data) {
+                            DispatchQueue.main.async {
+                                self.projects = jsonProjects
+                            }
+                        }
                     }
                 }
             }

@@ -12,6 +12,8 @@
 		419CD23E25E43608000C0240 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 419CD23D25E43608000C0240 /* Assets.xcassets */; };
 		419CD24125E43608000C0240 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 419CD24025E43608000C0240 /* Preview Assets.xcassets */; };
 		419CD24B25E44755000C0240 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CD24A25E44755000C0240 /* DataController.swift */; };
+		419CD24E25E45807000C0240 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CD24D25E45807000C0240 /* Project.swift */; };
+		419CD25325E45AD5000C0240 /* AddProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CD25225E45AD5000C0240 /* AddProjectView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		419CD24025E43608000C0240 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		419CD24225E43608000C0240 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		419CD24A25E44755000C0240 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		419CD24D25E45807000C0240 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		419CD25225E45AD5000C0240 /* AddProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +58,9 @@
 		419CD23825E43601000C0240 /* Time_Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				419CD25125E45AAF000C0240 /* App */,
+				419CD25025E45AA8000C0240 /* Views */,
 				419CD24925E4473B000C0240 /* Data */,
-				419CD23925E43601000C0240 /* Time_TrackerApp.swift */,
 				419CD23B25E43601000C0240 /* ContentView.swift */,
 				419CD23D25E43608000C0240 /* Assets.xcassets */,
 				419CD24225E43608000C0240 /* Info.plist */,
@@ -76,8 +81,25 @@
 			isa = PBXGroup;
 			children = (
 				419CD24A25E44755000C0240 /* DataController.swift */,
+				419CD24D25E45807000C0240 /* Project.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		419CD25025E45AA8000C0240 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				419CD25225E45AD5000C0240 /* AddProjectView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		419CD25125E45AAF000C0240 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				419CD23925E43601000C0240 /* Time_TrackerApp.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,9 +171,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				419CD25325E45AD5000C0240 /* AddProjectView.swift in Sources */,
 				419CD23C25E43601000C0240 /* ContentView.swift in Sources */,
 				419CD24B25E44755000C0240 /* DataController.swift in Sources */,
 				419CD23A25E43601000C0240 /* Time_TrackerApp.swift in Sources */,
+				419CD24E25E45807000C0240 /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
