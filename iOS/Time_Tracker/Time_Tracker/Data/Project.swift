@@ -35,4 +35,8 @@ class Project: ObservableObject, Identifiable, Codable {
         developer = try values.decode(String.self, forKey: .developer)
         description = try values.decode(String.self, forKey: .description)
     }
+    
+    init () {
+        
+    }
 }

@@ -16,7 +16,7 @@ class DataController: ObservableObject {
 
     func saveData () {
             DispatchQueue.global().async {
-                if let defaults = UserDefaults(suiteName: "group.MobileSoftwareServices.Time_Tracker") {
+                if let defaults = UserDefaults(suiteName: "group.MobileSoftwareSystems.Time-Tracker") {
                     let encoder = JSONEncoder()
                     if let encoded = try? encoder.encode(self.projects) {
                         defaults.setValue(encoded, forKey: "projects")
@@ -29,16 +29,29 @@ class DataController: ObservableObject {
     
     func loadData () {
             DispatchQueue.global().async {
-                if let defaults = UserDefaults(suiteName: "group.MobileSoftwareServices.HypedList") {
+                if let defaults = UserDefaults(suiteName: "group.MobileSoftwareSystems.Time-Tracker") {
                     if let data = defaults.data(forKey: "projects") {
                         let decoder = JSONDecoder()
                         if let jsonProjects = try? decoder.decode([Project].self, from: data) {
                             DispatchQueue.main.async {
                                 self.projects = jsonProjects
+                                print("projects from loadData: ", self.projects[0].name)
                             }
                         }
                     }
                 }
             }
         }
+    
+    func saveNewProject (project: Project) {
+        if let index = projects.firstIndex(where: {loopingProject -> Bool in
+            return project.id == loopingProject.id
+        }) {
+            projects[index] = project
+        } else {
+            projects.append(project)
+        }
+        print("PJ:", projects[0].name)
+        saveData()
+    }
 }

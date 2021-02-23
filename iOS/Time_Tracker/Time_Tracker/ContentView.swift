@@ -11,32 +11,28 @@ struct ContentView: View {
     
     // MARK:  Properties
     @State private var selectedProject : String = ""
-    @State private var newProject : String = ""
-    @State var showNewProjectTextField : Bool = false
+    @State var showNewProjectForm : Bool = false
+    
+    @State var projects : [Project] = []
     
     // MARK:  Body
     var body: some View {
         VStack {
             Button(action: {
-                showNewProjectTextField = true
+                showNewProjectForm.toggle()
             }, label: {
                 Text("Add a project...")
             })
-            if showNewProjectTextField {
-                TextField("Enter your name", text: $newProject)
-                Button(action: {
-//                    DataController.shared.projects.append(newProject)
-                }, label: {
-                    Text("Add")
-                    Image(systemName: "plus")
-                })
-            }
+            .sheet(isPresented: $showNewProjectForm, content: {
+                AddProjectView()
+            })
             
-            Picker("Please choose a project", selection: $selectedProject) {
-//                ForEach( DataController.shared.projects, id: \.self) {
-//                    Text($0.name)
-//                }
-            }
+            
+                ForEach( projects ) { project in
+                    Text(project.name)
+                }
+
+            .foregroundColor(Color.white)
             Text("You selected: \(selectedProject)")
         }
     }

@@ -12,6 +12,9 @@ struct Time_TrackerApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear {
+                    DataController.shared.loadData()
+                }
         }
     }
 }

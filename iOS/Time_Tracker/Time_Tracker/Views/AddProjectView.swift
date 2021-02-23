@@ -9,33 +9,32 @@ import SwiftUI
 
 struct AddProjectView: View {
     
-    @State var name : String
-    @State var developer : String
-    @State var description : String
+    @Environment(\.presentationMode) var presentationMode
     
+    @StateObject var newProject = Project()
     
     var body: some View {
         Form {
             Section {
-                TextField("Project name", text: $name)
-                TextField("Project developer", text: $developer)
-                TextField("Project description", text: $description)
+                TextField("Project name", text: $newProject.name)
+                TextField("Project developer", text: $newProject.developer)
+                TextField("Project description", text: $newProject.description)
             }
             
             Section {
                 Button(action: {
-                    DataController.shared.projects.append(<#T##newElement: Project##Project#>)
-                }, label: {
-                    "Save New Project"
-                })
+                    DataController.shared.saveNewProject(project: newProject)
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("Add New Project")
+                }
             }
-            
         }
     }
 }
 
 struct AddProjectView_Previews: PreviewProvider {
     static var previews: some View {
-        AddProjectView(name: "New project", developer: "Tom", description: "This is a demo project")
+        AddProjectView()
     }
 }
