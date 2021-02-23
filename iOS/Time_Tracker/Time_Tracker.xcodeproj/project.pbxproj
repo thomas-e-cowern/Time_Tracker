@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4156D00225E554D200E28079 /* ProjectListTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4156D00125E554D200E28079 /* ProjectListTile.swift */; };
+		4156D00525E567D000E28079 /* ProjectTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4156D00425E567D000E28079 /* ProjectTimerView.swift */; };
 		419CD23A25E43601000C0240 /* Time_TrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CD23925E43601000C0240 /* Time_TrackerApp.swift */; };
 		419CD23C25E43601000C0240 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CD23B25E43601000C0240 /* ContentView.swift */; };
 		419CD23E25E43608000C0240 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 419CD23D25E43608000C0240 /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4156D00125E554D200E28079 /* ProjectListTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListTile.swift; sourceTree = "<group>"; };
+		4156D00425E567D000E28079 /* ProjectTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTimerView.swift; sourceTree = "<group>"; };
 		419CD23625E43601000C0240 /* Time_Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Time_Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		419CD23925E43601000C0240 /* Time_TrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time_TrackerApp.swift; sourceTree = "<group>"; };
 		419CD23B25E43601000C0240 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				419CD25225E45AD5000C0240 /* AddProjectView.swift */,
+				4156D00125E554D200E28079 /* ProjectListTile.swift */,
+				4156D00425E567D000E28079 /* ProjectTimerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -172,8 +178,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				419CD25325E45AD5000C0240 /* AddProjectView.swift in Sources */,
+				4156D00525E567D000E28079 /* ProjectTimerView.swift in Sources */,
 				419CD23C25E43601000C0240 /* ContentView.swift in Sources */,
 				419CD24B25E44755000C0240 /* DataController.swift in Sources */,
+				4156D00225E554D200E28079 /* ProjectListTile.swift in Sources */,
 				419CD23A25E43601000C0240 /* Time_TrackerApp.swift in Sources */,
 				419CD24E25E45807000C0240 /* Project.swift in Sources */,
 			);

@@ -35,7 +35,7 @@ class DataController: ObservableObject {
                         if let jsonProjects = try? decoder.decode([Project].self, from: data) {
                             DispatchQueue.main.async {
                                 self.projects = jsonProjects
-                                print("projects from loadData: ", self.projects[0].name)
+                                print("projects from loadData: ", self.projects[0].id)
                             }
                         }
                     }

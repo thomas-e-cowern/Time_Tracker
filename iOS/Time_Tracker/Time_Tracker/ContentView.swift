@@ -10,37 +10,45 @@ import SwiftUI
 struct ContentView: View {
     
     // MARK:  Properties
-    @State private var selectedProject : String = ""
     @State var showNewProjectForm : Bool = false
+    @ObservedObject var data = DataController.shared
     
-    @State var projects : [Project] = []
+    var projects : [Project] = []
     
     // MARK:  Body
     var body: some View {
-        VStack {
-            Button(action: {
-                showNewProjectForm.toggle()
-            }, label: {
-                Text("Add a project...")
-            })
-            .sheet(isPresented: $showNewProjectForm, content: {
-                AddProjectView()
-            })
-            
-            
-                ForEach( projects ) { project in
-                    Text(project.name)
+        NavigationView {
+            VStack {
+                if data.projects.count == 0 {
+                    Text("Add a project to begin ✅")
+                        .fontWeight(.bold)
+                        .font(.callout)
+                } else {
+                    ForEach( data.projects ) { project in
+                        NavigationLink(destination: ProjectTimerView(project: project))
+                            {
+                                ProjectListTile(project: project)
+                            }
+                            
+                        }
                 }
-
-            .foregroundColor(Color.white)
-            Text("You selected: \(selectedProject)")
+            }
+            .navigationTitle("Time Tracker")
+            .navigationBarItems(trailing: Button(action: {
+                showNewProjectForm.toggle()
+            }){
+                Text("Add New Project")
+            })
         }
+        .sheet(isPresented: $showNewProjectForm, content: {
+            AddProjectView()
+        })
     }
 }
 
 // MARK:  Preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(projects: [testProjectOne, testProjectTwo])
     }
 }

@@ -40,3 +40,20 @@ class Project: ObservableObject, Identifiable, Codable {
         
     }
 }
+
+var testProjectOne : Project {
+    let project = Project()
+    project.id = "1"
+    project.name = "Test Project One"
+    project.developer = "Tom Bomb"
+    project.description = "The first test project...."
+    return project
+}
+var testProjectTwo : Project {
+    let project = Project()
+    project.id = "2"
+    project.name = "Test Project Two"
+    project.developer = "Tom C"
+    project.description = "The second test project...."
+    return project
+}

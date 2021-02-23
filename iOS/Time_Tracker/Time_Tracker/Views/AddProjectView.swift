@@ -14,21 +14,28 @@ struct AddProjectView: View {
     @StateObject var newProject = Project()
     
     var body: some View {
-        Form {
-            Section {
-                TextField("Project name", text: $newProject.name)
-                TextField("Project developer", text: $newProject.developer)
-                TextField("Project description", text: $newProject.description)
-            }
-            
-            Section {
-                Button(action: {
-                    DataController.shared.saveNewProject(project: newProject)
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    Text("Add New Project")
+        NavigationView {
+            Form {
+                Section {
+                    TextField("Project name", text: $newProject.name)
+                    TextField("Project developer", text: $newProject.developer)
+                    TextField("Project description", text: $newProject.description)
+                }
+                
+                Section {
+                    Button(action: {
+                        DataController.shared.saveNewProject(project: newProject)
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Text("Add New Project")
+                    }
                 }
             }
+            .navigationBarItems(trailing: Button(action: {
+                presentationMode.wrappedValue.dismiss()
+            }, label: {
+                Text("Cancel")
+            }))
         }
     }
 }
