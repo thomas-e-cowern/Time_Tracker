@@ -65,10 +65,14 @@ struct ProjectTimerView: View {
                     timerRunning = true
                 }) {
                     Text("Start")
+                        .foregroundColor(.green)
                 }
                 .padding()
-                .foregroundColor(.green)
                 .frame(width: 100)
+                .border(Color.black)
+                .cornerRadius(5)
+                .shadow(radius: 10)
+                
             }
         }
     }
