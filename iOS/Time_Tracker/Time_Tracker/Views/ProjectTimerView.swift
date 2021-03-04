@@ -43,21 +43,30 @@ struct ProjectTimerView: View {
                         timerRunning = false
                     }) {
                         Text("Stop")
+                            .foregroundColor(.white)
+                            .fontWeight(.bold)
                     }
                     .padding()
-                    .foregroundColor(.red)
                     .frame(width: 100)
-                    .shadow(radius: 10)
+                    .background(Color.red)
+                    .border(Color.black)
+                    .cornerRadius(5)
+                    .shadow(color: .gray, radius: 10, x: 10, y: 1.0)
                     
                     Button(action: {
                         stopTimer()
                         timerRunning = false
                     }) {
                         Text("Pause")
+                            .foregroundColor(.white)
+                            .fontWeight(.bold)
                     }
                     .padding()
-                    .foregroundColor(.yellow)
                     .frame(width: 100)
+                    .background(Color.yellow)
+                    .border(Color.black)
+                    .cornerRadius(5)
+                    .shadow(color: .gray, radius: 10, x: 10, y: 1.0)
                 }
             } else {
                 Button(action: {
@@ -65,19 +74,23 @@ struct ProjectTimerView: View {
                     timerRunning = true
                 }) {
                     Text("Start")
-                        .foregroundColor(.green)
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
                 }
                 .padding()
                 .frame(width: 100)
+                .background(Color.green)
                 .border(Color.black)
                 .cornerRadius(5)
-                .shadow(radius: 10)
+                .shadow(color: .gray, radius: 10, x: 10, y: 1.0)
                 
             }
         }
     }
 
     func startTimer () {
+        let startTime = Date()
+        print("Start time: \(startTime)")
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
       
             if seconds == 59 {
