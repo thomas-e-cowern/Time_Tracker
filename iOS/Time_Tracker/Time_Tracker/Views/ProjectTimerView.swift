@@ -22,7 +22,20 @@ struct ProjectTimerView: View {
     var body: some View {
         VStack {
             Text(project.name)
+                .padding()
+                .font(.title)
+            
+            Spacer()
+                .frame(height: 200)
+            
             Text("\(hours) hours : \(minutes) minutes : \(seconds) seconds")
+                .padding()
+                .font(.title2)
+                .background(Color.gray)
+            
+            Spacer()
+                .frame(height: 200)
+            
             if timerRunning {
                 HStack {
                     Button(action: {
@@ -31,12 +44,20 @@ struct ProjectTimerView: View {
                     }) {
                         Text("Stop")
                     }
+                    .padding()
+                    .foregroundColor(.red)
+                    .frame(width: 100)
+                    .shadow(radius: 10)
+                    
                     Button(action: {
                         stopTimer()
                         timerRunning = false
                     }) {
                         Text("Pause")
                     }
+                    .padding()
+                    .foregroundColor(.yellow)
+                    .frame(width: 100)
                 }
             } else {
                 Button(action: {
@@ -45,6 +66,9 @@ struct ProjectTimerView: View {
                 }) {
                     Text("Start")
                 }
+                .padding()
+                .foregroundColor(.green)
+                .frame(width: 100)
             }
         }
     }
