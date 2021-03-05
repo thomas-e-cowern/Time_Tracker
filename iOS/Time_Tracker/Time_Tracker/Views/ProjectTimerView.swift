@@ -10,6 +10,7 @@ import SwiftUI
 struct ProjectTimerView: View {
     
     // MARK:  Propeties
+    @State var showSaveSegmentForm : Bool = false
     var project : Project
     @State var seconds = 0
     @State var minutes = 0
@@ -41,6 +42,7 @@ struct ProjectTimerView: View {
                     Button(action: {
                         stopTimer()
                         timerRunning = false
+                        showSaveSegmentForm = true
                     }) {
                         Text("Stop")
                             .foregroundColor(.white)
@@ -54,7 +56,7 @@ struct ProjectTimerView: View {
                     .shadow(color: .gray, radius: 10, x: 10, y: 1.0)
                     
                     Button(action: {
-                        stopTimer()
+                        pauseTimer()
                         timerRunning = false
                     }) {
                         Text("Pause")
@@ -86,11 +88,17 @@ struct ProjectTimerView: View {
                 
             }
         }
+        .sheet(isPresented: $showSaveSegmentForm, content: {
+            SaveTimeSegmentView()
+        })
     }
 
     func startTimer () {
-        let startTime = Date()
-        print("Start time: \(startTime)")
+        let formatter = DateFormatter()
+        formatter.timeStyle = .long
+        formatter.dateStyle = .short
+        let startString = formatter.string(from: Date())
+        print("Start time: \(startString)")
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
       
             if seconds == 59 {
@@ -108,6 +116,11 @@ struct ProjectTimerView: View {
     }
     
     func stopTimer(){
+        print("Timer Stopped")
+      }
+
+    
+    func pauseTimer(){
         timer?.invalidate()
         timer = nil
       }
